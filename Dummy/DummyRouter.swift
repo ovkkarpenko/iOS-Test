@@ -6,7 +6,7 @@
 import UIKit
 
 protocol DummyRoutingLogic {
-    
+  
 }
 
 class DummyRouter {
@@ -14,13 +14,14 @@ class DummyRouter {
 }
 
 extension DummyRouter: DummyRoutingLogic {
-    
+  
 }
 
 extension DummyRouter {
   static func createModule() -> DummyViewController {
     let controller = UIStoryboard(name: "Dummy", bundle: nil)
       .instantiateViewController(withIdentifier: "DummyViewController") as! DummyViewController
+    
     let interactor = DummyInteractor()
     let presenter = DummyPresenter()
     let router = DummyRouter()
@@ -29,6 +30,7 @@ extension DummyRouter {
     controller.router = router
     interactor.presenter = presenter
     presenter.view = controller
+    
     return controller
   }
 }
